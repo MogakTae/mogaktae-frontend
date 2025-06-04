@@ -91,7 +91,7 @@ const StudyGroupSection: React.FC = () => {
 
     const handleCardClick = (groupId: number) => {
         console.log(`스터디 그룸 ${groupId} 클릭됨`);
-        // 나중에 라우팅?
+        // 나중에 라우팅으로 끌어오기..??
     };
 
     return (
