@@ -9,7 +9,7 @@ interface StudyGroup {
 }
 
 const StudyGroupSection: React.FC = () => {
-    // 나중에 스터디그룹 데이터랑 연결
+    // 나중에 스터디그룹 데이터랑 연결 예정
     const studyGroups: StudyGroup[] = [
         {
             id: 1,
