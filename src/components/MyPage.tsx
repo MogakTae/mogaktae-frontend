@@ -1,6 +1,6 @@
-import React, {useState} from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import StudyGroupCard from "./StudyGroupCard";
+import React, { useState } from 'react';
+import { ChevronLeft, ChevronRight, ArrowLeft } from 'lucide-react';
+import StudyGroupCard from './StudyGroupCard';
 import BasicProfile from '../assets/BasicProfile.png';
 
 interface StudyGroup {
@@ -14,23 +14,29 @@ interface StudyGroup {
 interface UserProfile {
     name: string;
     githubUrl: string;
-    tier: String;
+    tier: string;
     points: number;
     profileImage?: string;
 }
 
-const MyPage: React.FC = () => {
-    // 나중에 API 연동 - 사용자 프로필 데이터 가져오기
+// Props 타입 정의
+interface MyPageProps {
+    onBackToHome?: () => void;
+}
+
+const MyPage: React.FC<MyPageProps> = ({ onBackToHome }) => {
+    // TODO: API 연동 - 사용자 프로필 데이터 가져오기
     const userProfile: UserProfile = {
-        name: "ABCDE",
-        githubUrl: "https://github.com/abcde",
-        tier: "Silver IV",
-        points: 543,
-        profileImage: BasicProfile
+        name: "ABCDE", // TODO: 실제 사용자 이름으로 교체
+        githubUrl: "https://github.com/abcde", // TODO: 실제 GitHub URL로 교체 
+        tier: "Silver IV", // TODO: 백준 API 연동하여 실제 티어 가져오기
+        points: 543, // TODO: 실제 문제 풀이 점수/개수로 교체
+        profileImage: BasicProfile // 임시 프로필 이미지
     };
 
-    // 나중에 API 연동 - 사용자가 참여한 챌린지 데이터 가져오기
-    const ongoingChallenges: StudyGroup [] = [
+
+    // TODO: API 연동 - 사용자가 참여한 챌린지 데이터 가져오기
+    const ongoingChallenges: StudyGroup[] = [
         {
             id: 1,
             name: "알고리즘 스터디",
@@ -61,7 +67,7 @@ const MyPage: React.FC = () => {
         }
     ];
 
-    // API 연동 - 사용자가 완료한 챌린지 데이터 가져오기
+    // TODO: API 연동 - 사용자가 완료한 챌린지 데이터 가져오기
     const pastChallenges: StudyGroup[] = [
         {
             id: 5,
@@ -95,11 +101,11 @@ const MyPage: React.FC = () => {
 
     // 탭 상태 관리
     const [activeTab, setActiveTab] = useState<'ongoing' | 'past'>('ongoing');
-
+    
     // 슬라이더 상태 관리
     const [currentPage, setCurrentPage] = useState(0);
     const itemsPerPage = 4;
-
+    
     const currentChallenges = activeTab === 'ongoing' ? ongoingChallenges : pastChallenges;
     const totalPages = Math.ceil(currentChallenges.length / itemsPerPage);
     
