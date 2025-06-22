@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import StudyGroupCard from './StudyGroupCard';
 
 interface StudyGroup {
     id: number;
@@ -59,7 +60,6 @@ const StudyGroupSection: React.FC = () => {
             description: "1일 1백준",
             period: "2025.06.01 ~ 2025.12.31"
         },
-        
     ];
 
     // 슬라이더 상태 관리
@@ -70,27 +70,25 @@ const StudyGroupSection: React.FC = () => {
     // 현재 페이지에 표시 카드
     const currentGroups = studyGroups.slice(
         currentPage * itemsPerPage,
-        (currentPage + 1)*itemsPerPage
+        (currentPage + 1) * itemsPerPage
     );
 
     // 이전 페이지로 이동
     const handlePrevious = () => {
-        // setCurrentPage(prev => prev > 0 ? prev-1 : totalPages - 1); 순환형
         if (currentPage > 0) {
             setCurrentPage(prev => prev - 1);
-          }
+        }
     }
 
     // 다음 페이지로 이동
     const handleNext = () => {
-        // setCurrentPage(prev => prev < totalPages - 1 ? prev -1: 0)
         if (currentPage < totalPages - 1) {
             setCurrentPage(prev => prev + 1);
-          }
+        }
     }
 
     const handleCardClick = (groupId: number) => {
-        console.log(`스터디 그룸 ${groupId} 클릭됨`);
+        console.log(`스터디 그룹 ${groupId} 클릭됨`);
         // 나중에 라우팅으로 끌어오기..??
     };
 
@@ -132,30 +130,11 @@ const StudyGroupSection: React.FC = () => {
     
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {currentGroups.map((group) => (
-                <button
+                <StudyGroupCard 
                   key={group.id}
-                  onClick={() => handleCardClick(group.id)}
-                  className="bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 overflow-hidden text-left focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
-                  aria-label={`${group.name} 스터디 그룹으로 이동`}
-                >
-                  <div className="relative h-32 bg-gradient-to-br from-purple-400 via-purple-500 to-purple-600">
-                    <div className="absolute inset-0 bg-black/20"></div>
-                  </div>
-    
-                  <div className="p-4 text-left">
-                    <h3 className="font-semibold text-gray-900 text-lg mb-2 truncate">
-                      {group.name}
-                    </h3>
-                    
-                    <p className="text-gray-600 text-sm mb-2">
-                      {group.description}
-                    </p>
-                    
-                    <p className="text-gray-500 text-xs">
-                      {group.period}
-                    </p>
-                  </div>
-                </button>
+                  group={group}
+                  onClick={handleCardClick}
+                />
               ))}
             </div>
     
