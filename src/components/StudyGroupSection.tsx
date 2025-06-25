@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-// import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import StudyGroupCard from './StudyGroupCard';
 
 interface StudyGroup {
     id: number;
@@ -71,7 +72,6 @@ const StudyGroupSection: React.FC = () => {
 
     // 이전 페이지로 이동
     const handlePrevious = () => {
-        // setCurrentPage(prev => prev > 0 ? prev-1 : totalPages - 1); 순환형
         if (currentPage > 0) {
             setCurrentPage((prev) => prev - 1);
         }
@@ -79,14 +79,13 @@ const StudyGroupSection: React.FC = () => {
 
     // 다음 페이지로 이동
     const handleNext = () => {
-        // setCurrentPage(prev => prev < totalPages - 1 ? prev -1: 0)
         if (currentPage < totalPages - 1) {
             setCurrentPage((prev) => prev + 1);
         }
     };
 
     const handleCardClick = (groupId: number) => {
-        console.log(`스터디 그룸 ${groupId} 클릭됨`);
+        console.log(`스터디 그룹 ${groupId} 클릭됨`);
         // 나중에 라우팅으로 끌어오기..??
     };
 
