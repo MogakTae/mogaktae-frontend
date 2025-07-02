@@ -1,5 +1,5 @@
-import React from 'react';
-import Balloon from '../assets/MainBalloon.png';
+import React from "react";
+import Balloon from "../assets/MainBalloon.png";
 
 const MainScreen: React.FC = () => {
     return (
@@ -9,30 +9,29 @@ const MainScreen: React.FC = () => {
                     src={Balloon}
                     alt="왼쪽 풍선"
                     className="w-80 h-80 object-contain opacity-100"
-                    style={{
+                    style={{ 
                         transform: 'rotate(52.55deg)',
                         width: '394.74px',
-                        height: '394.74px',
+                        height: '394.74px'
                     }}
                 />
             </div>
-
+            
             <div className="absolute top-0 right-0 translate-x-1/4 -translate-y-1/4">
                 <img
                     src={Balloon}
                     alt="오른쪽 풍선"
                     className="object-contain opacity-100"
-                    style={{
+                    style={{ 
                         transform: 'rotate(-17.88deg)',
                         width: '491.46px',
-                        height: '491.46px',
+                        height: '491.46px'
                     }}
                 />
             </div>
 
             <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
-                <h1
-                    className="text-5xl md:text-6xl font-bold text-gray-900 leading-tight mb-6"
+                <h1 className="text-5xl md:text-6xl font-bold text-gray-900 leading-tight mb-6"
                     style={{ fontFamily: 'SB Aggro, sans-serif' }}
                 >
                     Set Goals, Share Your Code, <br />

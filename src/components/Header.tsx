@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { Bell, User } from "lucide-react";
-import logo from "../assets/logo.png";
+import React, { useState } from 'react';
+import { Bell, User } from 'lucide-react';
+import logo from '../assets/logo.png';
 
 // Props 타입 정의
 interface HeaderProps {
@@ -14,18 +14,18 @@ const Header: React.FC<HeaderProps> = ({ onPageChange, currentPage }) => {
 
     const handleLogin = () => {
         // TODO: 실제 로그인 로직 구현
-        console.log("로그인 버튼 클릭됨");
+        console.log('로그인 버튼 클릭됨');
         setIsLoggedIn(true); // 임시로 로그인 상태 변경 (테스트용)
     };
 
     const handleSignup = () => {
         // TODO: 실제 회원가입 로직 구현
-        console.log("가입하기 버튼 클릭됨");
+        console.log('가입하기 버튼 클릭됨');
     };
 
     const handleNotification = () => {
         // TODO: 알림 페이지로 이동 또는 알림 드롭다운 표시
-        console.log("알림 버튼 클릭됨");
+        console.log('알림 버튼 클릭됨');
     };
 
     const handleMyPage = () => {
@@ -35,7 +35,7 @@ const Header: React.FC<HeaderProps> = ({ onPageChange, currentPage }) => {
 
     const handleLogout = () => {
         // TODO: 실제 로그아웃 로직 구현
-        console.log("로그아웃됨");
+        console.log('로그아웃됨');
         setIsLoggedIn(false);
     };
 
@@ -43,11 +43,7 @@ const Header: React.FC<HeaderProps> = ({ onPageChange, currentPage }) => {
         <header className="fixed top-0 right-0 left-0 bg-white shadow-sm py-4 px-6 z-50">
             <div className="max-w-6xl mx-auto flex justify-between items-center">
                 <div className="cursor-pointer" onClick={() => onPageChange('home')}>
-                    <img 
-                        src={logo}
-                        alt="모각테 로고"
-                        className="h-8 w-auto object-contain"
-                    />
+                    <img src={logo} alt="모각테 로고" className="h-8 w-auto object-contain" />
                 </div>
 
                 {/* 로그인 상태에 따른 버튼 표시 */}
@@ -77,10 +73,7 @@ const Header: React.FC<HeaderProps> = ({ onPageChange, currentPage }) => {
                         </button>
 
                         {/* 임시 로그아웃 버튼 (테스트용) */}
-                        <button
-                            onClick={handleLogout}
-                            className="text-sm text-gray-500 hover:text-gray-700 ml-2"
-                        >
+                        <button onClick={handleLogout} className="text-sm text-gray-500 hover:text-gray-700 ml-2">
                             로그아웃
                         </button>
                     </div>
