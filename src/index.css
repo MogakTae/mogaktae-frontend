@@ -19,6 +19,24 @@ body {
         'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
 }
 
+feature/modal-error-page
+
+.bg-disabled {
+    background-color: #D6D0EF;
+}
+
+.bg-dark-purple {
+    background-color: #4D009C;
+}
+
+.bg-purple {
+    background-color: #7F00FF;
+}
+
+.bg-lite-purple {
+    background-color: #EBE6FD;
+  
 * {
     line-height: 150%;
+dev
 }
