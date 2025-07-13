@@ -1,7 +1,6 @@
 import React from 'react';
 import defaultProfile from './../assets/images/defaultProfile.png';
-// import CameraIcon from '../assets/icons/camera.svg?react';
-import { ReactComponent as Icon } from '../assets/icons/camera.svg';
+import CameraIcon from '../assets/icons/camera.svg';
 
 function GithubPage() {
     let hasError = true;
@@ -16,7 +15,7 @@ function GithubPage() {
                         className="w-24 border border-[#9C9DA8] rounded-full box-border object-cover"
                     />
                     <button className="flex items-center px-6 py-2 gap-2 rounded-3xl justify-between text-[#7F00FF] border border-[#7F00FF]">
-                        <Icon />
+                        <CameraIcon />
                         <span className="text-[16px] inline-flex justify-center items-center w-full font-medium text-base">
                             프로필 사진 업로드
                         </span>
