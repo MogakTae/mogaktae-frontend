@@ -91,7 +91,7 @@ const Header: React.FC<HeaderProps> = ({ onPageChange, currentPage }) => {
                         {/* 로그인 버튼 */}
                         <button
                             onClick={handleLogin}
-                            className="bg-login-button text-white px-6 py-2 rounded-full font-medium hover:opacity-90 transition-all"
+                            className="bg-purple text-white px-6 py-2 rounded-full font-medium hover:opacity-90 transition-all"
                         >
                             로그인
                         </button>
