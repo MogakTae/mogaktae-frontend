@@ -4,6 +4,8 @@ import RootLayout from './pages/Root';
 import ErrorPage from './pages/Error';
 import MainPage from './pages/MainPage';
 import GithubPage from './pages/GithubPage';
+import Greeting from './pages/Greeting';
+import CreateGroupPage from './pages/CreateGroupPage';
 
 const router = createBrowserRouter([
     {
@@ -15,6 +17,14 @@ const router = createBrowserRouter([
             {
                 path: 'github',
                 element: <GithubPage />,
+            },
+            {
+                path: 'create',
+                element: <CreateGroupPage />,
+            },
+            {
+                path: 'greeting',
+                element: <Greeting />,
             },
         ],
     },
