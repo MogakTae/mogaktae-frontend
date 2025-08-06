@@ -6,6 +6,7 @@ import MainPage from './pages/MainPage';
 import GithubPage from './pages/GithubPage';
 import Greeting from './pages/Greeting';
 import CreateGroupPage from './pages/CreateGroupPage';
+import ChallengeResultPage from './pages/ChallengeResultPage';
 
 const router = createBrowserRouter([
     {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
             {
                 path: 'greeting',
                 element: <Greeting />,
+            },
+            {
+                path: 'challenge-result', 
+                element: <ChallengeResultPage />,
             },
         ],
     },
