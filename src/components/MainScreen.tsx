@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import Balloon from '../assets/MainBalloon.png';
 import AlertModal from './AlertModal';
+import GitHubRepoModal from './GithubRepoModal';
 
 const MainScreen: React.FC = () => {
-    // 모달 상태 관리
+    // 기존 모달 상태 관리
     const [modalConfig, setModalConfig] = useState<{
         isOpen: boolean;
         title: string;
@@ -15,6 +16,9 @@ const MainScreen: React.FC = () => {
         title: '',
         message: '',
     });
+
+    // 깃허브 모달 상태 관리
+    const [isGitHubModalOpen, setIsGitHubModalOpen] = useState(false);
     
     // TODO: 실제 로그인 상태와 연동
     const [isLoggedIn, setIsLoggedIn] = useState(false); // 테스트용
@@ -64,6 +68,18 @@ const MainScreen: React.FC = () => {
         console.log('그룹 생성하기');
         // TODO: 그룹 생성 페이지로 이동 또는 그룹 생성 폼 모달 열기
         // navigate('/create-group') 또는 그룹 생성 모달 열기
+    };
+
+    // 깃허브 연결 버튼 클릭 핸들러
+    const handleGitHubConnect = () => {
+        setIsGitHubModalOpen(true);
+    };
+
+    // 깃허브 모달에서 참여하기 클릭 시
+    const handleGitHubJoin = () => {
+        console.log('깃허브 챌린지에 참여합니다!');
+        // TODO: 실제 참여 로직 구현
+        alert('깃허브 챌린지에 참여하였습니다!');
     };
 
     const handleLogin = () => {
@@ -127,12 +143,21 @@ const MainScreen: React.FC = () => {
                         깃허브로 코드 풀이를 공유하여 챌린지를 인수해보세요!
                     </p>
 
-                    <button 
-                        onClick={handleCreateGroup}
-                        className="bg-black text-white px-8 py-2 rounded-full text-lg font-medium hover:bg-gray-800 transition-all duration-300 transform hover:scale-105"
-                    >
-                        그룹 만들기
-                    </button>
+                    <div className="flex gap-4 justify-center">
+                        <button 
+                            onClick={handleCreateGroup}
+                            className="bg-black text-white px-8 py-2 rounded-full text-lg font-medium hover:bg-gray-800 transition-all duration-300 transform hover:scale-105"
+                        >
+                            그룹 만들기
+                        </button>
+                        
+                        <button 
+                            onClick={handleGitHubConnect}
+                            className="bg-purple-600 text-white px-8 py-2 rounded-full text-lg font-medium hover:bg-purple-700 transition-all duration-300 transform hover:scale-105"
+                        >
+                            깃허브 연결하기
+                        </button>
+                    </div>
                     
                     {/* 테스트용 버튼들임 - 나중에 삭제 */}
                     <div className="mt-4 flex gap-2 justify-center">
@@ -160,6 +185,16 @@ const MainScreen: React.FC = () => {
                 message={modalConfig.message}
                 buttonText={modalConfig.buttonText}
                 onButtonClick={modalConfig.onButtonClick}
+            />
+
+            {/* 깃허브 레포지토리 모달 */}
+            <GitHubRepoModal
+                isOpen={isGitHubModalOpen}
+                onClose={() => setIsGitHubModalOpen(false)}
+                onJoin={handleGitHubJoin}
+                challengeTitle="같이 공부해요"
+                goal="1일 1백준"
+                period="2025.01.01 - 2025.09.01"
             />
         </>
     );
